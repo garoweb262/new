@@ -1,0 +1,705 @@
+<?php
+  require_once'config/db.php';
+  if ($_SERVER['REQUEST_METHOD'] == 'GET' ) {
+    if (isset($_GET['submitBtn'])){
+      $uname =$_GET['name'];
+       $email =$_GET['email'];
+        $message =$_GET['meesage'];
+        $query ="insert into contact(name, email, meesage) values(:name, :email, :meesage)";
+
+        $stmt = $con->prepare($query);
+        $stmt->bindparam(":name", $uname);
+        $stmt->bindparam(":email", $email);
+        $stmt->bindparam(":meesage", $message);
+
+        if ($stmt->execute()){
+          header("location:index.php? send succesfully");
+        }
+    }
+  }
+
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Garoweb Designs and prints</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/svgs" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+   <link href="lib/venobox/venobox.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  
+</head>
+
+<body>
+
+ 
+
+  
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">GAROWEB</a></h1>
+      
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#venue">Gallery</a></li>
+          <li><a href="#speakers">Team</a></li>
+          <li><a href="about.html">Blog</a></li>
+          <li class="menu-has-children"><a href="">Place Order</a>
+            <ul>
+              <li class="menu-has-children"><a href="">Registration</a>
+                <ul>
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="signup.html">Sign up</a></li>
+                </ul>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+          <li><a href="services.html">Services</a></li>
+      </nav>
+    </div>
+  </header>
+  </header>
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+
+    <div class="intro-text">
+      <h2>Welcome to <br> Garoweb Designs and Prints</h2>
+      <p>We are team of talanted designers making websites with a comfortale User interface and a very strong database managenment system, Mobile Application Design, Graphics Design and Printings.<br>And We deliver our Products all over the Nation. </p>
+      <a href="#brief" class="btn-get-started scrollto">Get Started</a>
+     
+    </div>
+     
+    <div class="product-screens">
+
+      <div class="product-screen-1 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.6s">
+        <img src="img/glogo111.png" height="100%" width="80%" alt="">
+      </div>
+
+      <div class="product-screen-3 wow fadeInUp" data-wo "50%"  alt=""> 
+         <img src="img/glogo113.png" height="100%" width="80%" alt="">
+      </div>
+
+    </div>
+
+  </section>
+   <section id="brief" class="section-bg">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+
+        <div class="brief-header">
+          <img src="icons/target.svg" width="50%" height="50%">
+          <h3 class="brief-title">Our Mission</h3>
+          <span class="brief-divider"></span>
+          <p class="brief-description">We are team of talanted designers making websites with a comfortale User interface and a very strong database managenment system, Mobile Application, Graphics Design and Printing.</p>
+        
+      </div>
+    </div>
+
+       <div class="col-md-4">
+
+        <div class="brief-header">
+          <img src="icons/mountain.svg" width="50%" height="50%">
+          <h3 class="brief-title">Our Vision</h3>
+          <span class="brief-divider"></span>
+          <p class="brief-description">We are team of talanted designers making websites with a comfortale User interface and a very strong database managenment system, Mobile Application, Graphics Design and Printing.</p>
+        
+        
+      </div>
+    </div>
+     <div class="col-md-4">
+
+        <div class="brief-header">
+          <img src="icons/teamwork.svg" width="50%" height="50%">
+          <h3 class="brief-title">Teamwork</h3>
+          <span class="brief-divider"></span>
+          <p class="brief-description">We are team of talented designers making websites with a comfortale User interface and a very strong database managenment system, Mobile Application, Graphics Design and Printing.</p>   
+      </div>
+    </div>  
+  </div>
+  <center>
+  <button><a href="login.html" class="btn-get-started scrollto"><i class="fa fa-credit-card"></i> Place Design Order</a>
+    </button>
+    </center>
+</div>
+</section>
+    <section id="venue" class="wow fadeInUp">
+
+      <div class="container-fluid">
+
+        <div class="section-header">
+          <h2>Event Venue</h2>
+          <p>Event venue location info and gallery</p>
+        </div>
+
+        <div class="row no-gutters">
+          <div class="col-lg-6 venue-map">
+            <iframe src="https://www.garoweb.com.ng/login.html frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+
+          <div class="col-lg-6 venue-info">
+            <div class="row justify-content-center">
+              <div class="col-11 col-lg-8">
+                <h3>Graphics Designs Samples</h3>
+                <p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-fluid venue-gallery-container">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/1.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/2.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/3.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/4.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/5.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/6.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/7.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/7.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/8.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/8.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+                <div class="container-fluid venue-gallery-container">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/c1.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/c1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/c2.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/c2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/c3.png" class="venobox" data-gall="venue-gallery">
+                <img src="img/c3.png" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/c4.png" class="venobox" data-gall="venue-gallery">
+                <img src="img/c4.png" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/1cup.png" class="venobox" data-gall="venue-gallery">
+                <img src="img/1cup.png" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/c6.png" class="venobox" data-gall="venue-gallery">
+                <img src="img/c6.png" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/c7.png" class="venobox" data-gall="venue-gallery">
+                <img src="img/c7.png" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/c8.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/c8.jpg" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+
+                <div class="container-fluid venue-gallery-container">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/f1.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/f1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/f2.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/f2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/f3.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/f3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/f4.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/f4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/w1.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/w1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/w2.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/w2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/w3.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/w3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/w4.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/w4.jpg" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/w5.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/w5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/w6.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/w6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/w7.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/w7.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/w9.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/w9.jpg" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+ 
+  
+ <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="section-title">Team</h3>
+             <span class="section-divider"></span>
+          <p class="section-description">Meet our Amazing team </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/ceo1.jpg" alt="" class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html">Garzali Ahmad Garo</a></h3>
+                <p>CEO/CO-Founder<br>Website/Graphics Designer</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/oga1.jpg" alt="" class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html">Abdallah Mukhtar</a></h3>
+                <p>Managing Director<br>Graphics/App Designer</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/mahmud.jpeg" alt="" class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html">Mahmud Ibrahim</a></h3>
+                <p>Program Director<br>Website Designer</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/amal.jpg" alt="" class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html">Amal umar</a></h3>
+                <p>Website Designer</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/m1.jpg" alt="" class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html">Micheal ngoxi</a></h3>
+                <p>Website Designer</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/s1.jpg" alt="" class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html">Salim Abdullahi Garo</a></h3>
+                <p>Printing Manager</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+ 
+
+   
+    <!--==========================
+      Frequently Asked Questions Section
+    ============================-->
+    <section id="faq">
+      <div class="container">
+
+        <div class="section-header">
+          <h3 class="section-title">Frequently Asked Questions</h3>
+          <span class="section-divider"></span>
+          <p class="section-description">here are some question peoples have been asking us about our website and how we have grown up to this. </p>
+        </div>
+
+        <ul id="faq-list" class="wow fadeInUp">
+          <li>
+            <a data-toggle="collapse" class="collapsed" href="#faq1">How did you grown up in tech? <i class="ion-android-remove"></i></a>
+            <div id="faq1" class="collapse" data-parent="#faq-list">
+              <p>
+                We grown up in tech by learning everyday and trying our best to achive our dream. we started everything by learning from our seniors and mentors,   
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq2" class="collapsed">how did you come up with this team? <i class="ion-android-remove"></i></a>
+            <div id="faq2" class="collapse" data-parent="#faq-list">
+              <p>
+                We come up with this team .
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">How Long does it take you to finish a work if someone place an order? <i class="ion-android-remove"></i></a>
+            <div id="faq3" class="collapse" data-parent="#faq-list">
+              <p>
+                After 
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq4" class="collapsed">? <i class="ion-android-remove"></i></a>
+            <div id="faq4" class="collapse" data-parent="#faq-list">
+              <p>
+                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq5" class="collapsed">i have transfered you the money, have you seen the alert? <i class="ion-android-remove"></i></a>
+            <div id="faq5" class="collapse" data-parent="#faq-list">
+              <p>
+                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq6" class="collapsed">how do i place an order? i wants 500 copies of poster for an election. <i class="ion-android-remove"></i></a>
+            <div id="faq6" class="collapse" data-parent="#faq-list">
+              <p>
+                Click the place order button, sign in and login to your account to place your order, Read the guildline very carefully so that you don't make mistakes. And Payment validate order.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+ <section id="contact">
+      <div class="container">
+        <div class="row wow fadeInUp">
+
+ 
+     <div class="col-lg-12">
+            <div class="form">
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form action="" method="post" role="form" class="contactForm">
+                <div class="form-row">
+                  <div class="form-group col-lg-6">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                  </div>
+                  <div class="form-group col-lg-6">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="phone" id="subject" placeholder="phone" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+              </form>
+            </div>
+        
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+     <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <img src="img/glogo112.png">
+            <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <ul>
+              <li><i class="fa fa-angle-right"></i> <a href="index.php">Home</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="about.php">About us</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="serices.html">Services</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="login.php">Place Order</a></li>
+            </ul>
+          </div>
+
+         
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              Sabuwar Unguwa <br>
+              Garo, Kabo<br>
+              Kano States <br>
+              <strong>Phone:</strong>07066492821<br>
+              <strong>Email:</strong> garowebdesignsandprints@gmail.com<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-whatsapp"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Garoweb 2021</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://garoweb.com.ng/">Garoweb Designs and Prints</a>
+      </div>
+    </div>
+  </footer>
+
+  
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
